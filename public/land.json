@@ -1,0 +1,55 @@
+[
+    {
+      "id": 1,
+      "segment_name": "land",
+      "estate_title": "Beautiful Farmhouse with Vineyard",
+      "image": "https://i.ibb.co/wWzq3nm/3c13063a-679e-4a78-bfa2-d7726a47d522-jpeg.webp",
+      "description": "A stunning farmhouse with a vineyard, perfect for wine enthusiasts.",
+      "detail_description": "This beautiful farmhouse features a spacious living area, modern kitchen, and cozy bedrooms. The surrounding vineyard produces high-quality grapes ideal for winemaking. Enjoy breathtaking views of the countryside from the wraparound porch.",
+      "price": "$500,000",
+      "status": "sale",
+      "area": "10 acres",
+      "location": "Napa Valley, California",
+      "facilities": ["vineyard", "farmhouse", "barn"]
+    },
+    {
+      "id": 2,
+      "segment_name": "land",
+      "estate_title": "Rustic Ranch with Scenic Views",
+      "image": "https://i.ibb.co/m8WRTMq/depositphotos-557103050-stock-photo-savsat-artvin-turkey-november-2021.webp",
+      "description": "A charming ranch with picturesque views of the countryside.",
+      "detail_description": "This rustic ranch offers a peaceful retreat with its rolling hills and expansive pastureland. The ranch house features a cozy fireplace and spacious bedrooms. Explore the surrounding trails on horseback or enjoy a relaxing evening by the fire pit.",
+      "price": "$300,000",
+      "status": "sale",
+      "area": "50 acres",
+      "location": "Montana",
+      "facilities": ["ranch house", "barn", "riding trails"]
+    },
+    {
+      "id": 3,
+      "segment_name": "land",
+      "estate_title": "Secluded Forest Retreat",
+      "image": "https://i.ibb.co/TKzmJvB/c5b8d7bc6f7fb242cc7f19f56fcca220.jpg",
+      "description": "A tranquil retreat nestled in the heart of the forest.",
+      "detail_description": "Escape to this secluded forest retreat and immerse yourself in nature's beauty. The cozy cabin offers all the comforts of home, while the surrounding forest provides endless opportunities for hiking and wildlife watching.",
+      "price": "$250,000",
+      "status": "sale",
+      "area": "20 acres",
+      "location": "Pacific Northwest",
+      "facilities": ["cabin", "forest", "trails"]
+    },
+    {
+      "id": 4,
+      "segment_name": "land",
+      "estate_title": "Expansive Plantation with Historic Manor",
+      "image": "https://i.ibb.co/gS7nqsv/plantation-tours-new-orleans-9-jpg.webp",
+      "description": "An impressive plantation estate with a stately manor house.",
+      "detail_description": "Step back in time with this historic plantation estate. The grand manor house features elegant architecture and luxurious amenities. Explore the sprawling grounds, which include meticulously landscaped gardens, orchards, and even a private lake.",
+      "price": "$1,200,000",
+      "status": "sale",
+      "area": "100 acres",
+      "location": "Charleston, South Carolina",
+      "facilities": ["manor house", "gardens", "orchards"]
+    }
+  ]
+  
