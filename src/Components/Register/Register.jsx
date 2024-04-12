@@ -5,12 +5,15 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 
 
 const Register = () => {
     const {createUser} = useContext(AuthContext)
     const [registerError, setRegisterError] = useState('')
     const [registerSuccess, setRegisterSuccess] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
 
     const handleRegister = e => {
         e.preventDefault()
@@ -62,8 +65,13 @@ const Register = () => {
                         <div className="form-control">
                         <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                        <div className="relative form-control">
+                        <input className="input input-bordered" placeholder="Password" type={showPassword ? "text" : "password"} name="password" id="" required/>
+                        <span className="absolute top-3 right-3" onClick={()=>setShowPassword(!showPassword)}>
+                            {
+                                showPassword ? <IoEyeOff /> : <IoEye />
+                            }
+                            </span><br />
                         </div>
                         <div className="form-control mt-6">
                         <button className="btn border-green-300 bg-white text-green-600">Register</button>
