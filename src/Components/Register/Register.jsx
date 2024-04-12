@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import { updateProfile } from 'firebase/auth';
 
 
 const Register = () => {
@@ -38,8 +39,13 @@ const Register = () => {
         //create user
         createUser(email, password)
         .then(result=>{
+            const user = result.user;
             console.log(result.user)
             setRegisterSuccess(toast.success('User created successfully'))
+            return updateProfile(user, {
+                displayName: name,
+                photoURL: photo
+            });
         })
         .catch(error=>{
             console.error(error)
