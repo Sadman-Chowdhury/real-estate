@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     return (
         <div>
-            <h2 className="text-3xl my-10 text-center underline">Please Register</h2>
+            <h2 className="text-3xl my-10 text-center underline font-extrabold">Please Register</h2>
             <div className='flex flex-col-reverse md:flex-col lg:flex-row shadow-2xl'>
                 <form className="card-body w-full lg:w-1/2 justify-center">
                 <div className="form-control">
