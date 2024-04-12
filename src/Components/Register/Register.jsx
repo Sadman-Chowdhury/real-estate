@@ -1,11 +1,16 @@
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Register = () => {
     const {createUser} = useContext(AuthContext)
+    const [registerError, setRegisterError] = useState('')
+    const [registerSuccess, setRegisterSuccess] = useState('')
 
     const handleRegister = e => {
         e.preventDefault()
@@ -14,20 +19,34 @@ const Register = () => {
         const photo = form.get('photo')
         const email = form.get('email')
         const password = form.get('password')
-        console.log(form.get('email'))
+
+        //password error
+        if(password.length<6){
+            toast.error('Password should be atleast 6 characters')
+            return
+        }else if(!/[A-Z]/.test(password)){
+            toast.error('Password should have atleast one Uppercase')
+            return
+        }else if(!/[a-z]/.test(password)){
+            toast.error('Password should have atleast one Lowercase')
+            return
+        }
 
         //create user
         createUser(email, password)
         .then(result=>{
             console.log(result.user)
+            setRegisterSuccess(toast.success('User created successfully'))
         })
         .catch(error=>{
             console.error(error)
+            setRegisterError(toast.error)
         })
     }
 
     return (
         <div>
+            <ToastContainer/>
             <Helmet>
                 <title>Register | Dream Land</title>
             </Helmet>
@@ -54,6 +73,12 @@ const Register = () => {
                         <img className='w-full' src="https://i.ibb.co/HNHZfZR/register.jpg" alt="" />
                     </div>
                 </div>
+                {
+                    registerError && <p className="text-red-600">{registerError}</p>
+                }
+                {
+                    registerSuccess && <p className="text-green-600">{registerSuccess}</p>
+                }
                 <p className="text-center mt-5">Already have an account?<Link className="ml-2 text-blue-600 font-bold" to="/login">Login</Link></p>
         </div>
     );
