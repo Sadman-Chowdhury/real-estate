@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsTwitterX } from "react-icons/bs";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     return (
         <div>
+            <Helmet>
+                <title>Login | Dream Land</title>
+            </Helmet>
             <div>
             <h2 className="text-5xl my-10 text-center font-extrabold">Login!</h2>
             <div className='flex flex-col-reverse md:flex-col lg:flex-row shadow-2xl'>
