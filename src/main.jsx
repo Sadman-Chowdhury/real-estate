@@ -8,6 +8,7 @@ import {
 import Root from './Components/Root/Root';
 import Home from './Components/Home/Home';
 import { HelmetProvider } from 'react-helmet-async';
+import Register from './Components/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path:"/",
         element: <Home></Home>
+      },
+      {
+        path:"/register",
+        element: <Register></Register>
       }
     ]
   },

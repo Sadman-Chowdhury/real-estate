@@ -19,7 +19,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                    <h2 className="text-3xl font-bold">Dream Land</h2>
+                    <h2 className="text-3xl font-bold text-green-600">Dream Land</h2>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
