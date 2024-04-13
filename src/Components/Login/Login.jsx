@@ -1,18 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { BsTwitterX } from "react-icons/bs";
+import { ImGithub } from "react-icons/im";
 import { Helmet } from "react-helmet";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const googleProvider = new GoogleAuthProvider()
+const githubProvider = new GithubAuthProvider()
 
 const Login = () => {
-    const {signIn, googleSignIn} = useContext(AuthContext)
+    const {signIn, googleSignIn, githubSignIn} = useContext(AuthContext)
     const [loginError, setLoginError] = useState('')
     const [loginSuccess, setLoginSuccess] = useState('')
     const [showPassword, setShowPassword] = useState(false)
@@ -40,6 +41,21 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         googleSignIn(googleProvider)
+        .then(result => {
+            console.log(result.user)
+            toast.success('Login successful');
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
+        })
+        .catch(error => {
+            console.log('error', error.message)
+            toast.error('Error signing in with Google');
+        })
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignIn(githubProvider)
         .then(result => {
             console.log(result.user)
             toast.success('Login successful');
@@ -81,7 +97,7 @@ const Login = () => {
                     </form>
                     <div className="flex flex-col justify-center items-center gap-5">
                         <button onClick={handleGoogleSignIn} className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-blue-100 font-bold"><FcGoogle className="text-2xl ml-10"/>Login with Google</button>
-                        <button className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-gray-200 font-bold"><BsTwitterX className="text-2xl ml-10"/>Login with X</button>
+                        <button onClick={handleGithubSignIn} className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-gray-200 font-bold"><ImGithub className="text-2xl ml-10"/>Login with Github</button>
                     </div>
                 </div>
                     <div className='w-full lg:w-2/5'>
