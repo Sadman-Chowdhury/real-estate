@@ -1,6 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { IoLocationSharp } from "react-icons/io5";
 import 'animate.css';
+import { Helmet } from "react-helmet";
 
 const LandDetails = () => {
     const {id} = useParams()
@@ -9,6 +10,9 @@ const LandDetails = () => {
 
     return (
         <div className="space-y-10 mt-16">
+            <Helmet>
+            <title>Properties | Dream Land</title>
+            </Helmet>
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="w-full lg:w-3/5 rounded-2xl shadow-2xl">
                     <img className="w-full h-full rounded-2xl shadow-2xl bg-gray-300 p-6" src={land.image} alt="" />

@@ -15,6 +15,7 @@ import LandDetails from './Components/LandDetails/LandDetails';
 import PrivateRoute from './Components/routes/PrivateRoute';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import UserProfile from './Components/UserProfile/UserProfile';
+import UpdateProfile from './Components/UpdateProfile/UpdateProfile';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path:"/userProfile",
         element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>
+      },
+      {
+        path:"/updateProfile",
+        element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
       }
     ]
   },
