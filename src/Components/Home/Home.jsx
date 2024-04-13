@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {useLoaderData} from "react-router-dom";
-// import Swiper bundle with all modules installed
 import Swiper from 'swiper/bundle';
-
-// import styles bundle
 import 'swiper/css/bundle';
+import Land from '../Land/Land';
+import 'animate.css';
 
 
 const Home = () => {
@@ -32,7 +31,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="">
+        <div className="animate__animated animate__fadeInLeft animate__delay-1s">
             <Helmet>
                 <title>Home | Dream Land</title>
             </Helmet>
@@ -42,7 +41,7 @@ const Home = () => {
                     {lands.map((land) => (
                         <div key={land.id} className="swiper-slide bg-gray-300 p-10 space-y-5">
                             <div>
-                                <img className='w-3/4 h-[500px] rounded-xl shadow-xl mx-auto rounded-b-none' src={land.image} alt={land.estate_title} />
+                                <img className='w-3/4 h-[300px] md:h-[400px] lg:h-[500px] rounded-xl shadow-xl mx-auto rounded-b-none' src={land.image} alt={land.estate_title} />
                             </div>
                             <div className='text-center font-bold text-2xl text-green-700 border border-green-600 w-3/4 mx-auto p-2 rounded-xl rounded-t-none shadow-xl'>
                                 <h2>{land.estate_title}</h2>
@@ -52,6 +51,12 @@ const Home = () => {
                 </div>
             <div className="swiper-button-next"></div>
             </div>
+                    <h2 className='text-4xl font-bold text-green-600 text-center mt-12'>Recent estates</h2>
+                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
+                    {
+                        lands.map(land=><Land key={land.id} land={land}></Land>)
+                    }
+                    </div>
             </div>
 )
 };

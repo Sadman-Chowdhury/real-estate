@@ -11,6 +11,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
 import AuthProvider from './providers/AuthProvider';
+import LandDetails from './Components/LandDetails/LandDetails';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         path:"/",
         element: <Home></Home>,
         loader:()=>fetch('/lands.json')
+      },
+      {
+        path: '/landDetails/:id',
+        element: <LandDetails></LandDetails>
       },
       {
         path:"/register",
