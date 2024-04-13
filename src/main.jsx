@@ -14,6 +14,7 @@ import AuthProvider from './providers/AuthProvider';
 import LandDetails from './Components/LandDetails/LandDetails';
 import PrivateRoute from './Components/routes/PrivateRoute';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
+import UserProfile from './Components/UserProfile/UserProfile';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element: <Login></Login>
+      },
+      {
+        path:"/userProfile",
+        element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>
       }
     ]
   },
