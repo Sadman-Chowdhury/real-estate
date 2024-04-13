@@ -7,9 +7,12 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
+import { GoogleAuthProvider } from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider()
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext)
+    const {signIn, googleSignIn} = useContext(AuthContext)
     const [loginError, setLoginError] = useState('')
     const [loginSuccess, setLoginSuccess] = useState('')
     const [showPassword, setShowPassword] = useState(false)
@@ -25,13 +28,31 @@ const Login = () => {
         .then(result=>{
             console.log(result.user)
             setLoginSuccess(toast.success('Login successful'))
-            navigate('/')
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
         })
         .catch(error=>{
             console.error(error)
             setLoginError(toast.error('There is no such user. Check email and password'))
         })
     }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+        .then(result => {
+            console.log(result.user)
+            toast.success('Login successful');
+            setTimeout(() => {
+                navigate('/');
+            }, 1000);
+        })
+        .catch(error => {
+            console.log('error', error.message)
+            toast.error('Error signing in with Google');
+        })
+    }
+
     return (
         <div>
             <ToastContainer></ToastContainer>
@@ -59,7 +80,7 @@ const Login = () => {
                         </div>
                     </form>
                     <div className="flex flex-col justify-center items-center gap-5">
-                        <button className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-blue-100 font-bold"><FcGoogle className="text-2xl ml-10"/>Login with Google</button>
+                        <button onClick={handleGoogleSignIn} className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-blue-100 font-bold"><FcGoogle className="text-2xl ml-10"/>Login with Google</button>
                         <button className="border w-1/2 inline-flex gap-5 rounded-lg p-4 bg-gray-200 font-bold"><BsTwitterX className="text-2xl ml-10"/>Login with X</button>
                     </div>
                 </div>
