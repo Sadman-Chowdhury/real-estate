@@ -1,12 +1,16 @@
 import { IoLocationSharp } from "react-icons/io5";
 import 'animate.css';
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
 
 const Land = ({land}) => {
     const {estate_title, image, description, facilities, price, area, location, id} = land
 
     return (
-        <div className="border p-6 rounded-2xl space-y-5 shadow-2xl animate__animated animate__fadeInRight animate__delay-2s">
+        <div className="border p-6 rounded-2xl space-y-5 shadow-2xl" data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="1000">
                 <div className="bg-gray-100 rounded-2xl flex justify-center p-4">
                     <img className="h-[250px] w-full" src={image} alt="" />
                 </div>

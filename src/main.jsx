@@ -25,7 +25,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/landDetails/:id',
-        element: <LandDetails></LandDetails>
+        element: <LandDetails></LandDetails>,
+        loader:()=>fetch('/lands.json')
       },
       {
         path:"/register",

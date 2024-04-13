@@ -31,11 +31,11 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="animate__animated animate__fadeInLeft animate__delay-1s">
+        <div className="">
             <Helmet>
                 <title>Home | Dream Land</title>
             </Helmet>
-            <div className='swiper shadow-2xl rounded-xl mt-10'>
+            <div className='swiper shadow-2xl rounded-xl mt-10 animate__animated animate__fadeInLeft animate__delay-1s'>
             <div className="swiper-button-prev text-green-600"></div>
             <div className="swiper-wrapper">
                     {lands.map((land) => (
