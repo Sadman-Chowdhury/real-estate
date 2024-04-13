@@ -16,6 +16,8 @@ const LandDetails = () => {
                 <div className="w-full lg:w-2/5 space-y-6 animate__animated animate__fadeInRight animate__delay-1s">
                     <h1 className="text-4xl font-extrabold">{land.estate_title}</h1>
                     <hr />
+                    <p className="text-[18px] font-bold">Segment: <span className="text-green-700">{land.segment_name}</span></p>
+                    <hr />
                     <p className="text-gray-600">{land.description}</p>
                     <hr />
                     <div className="flex items-center">

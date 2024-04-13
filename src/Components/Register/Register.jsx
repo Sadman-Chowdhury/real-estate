@@ -1,7 +1,7 @@
 
 import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,12 +11,14 @@ import { updateProfile } from 'firebase/auth';
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser, setUser} = useContext(AuthContext)
     const [registerError, setRegisterError] = useState('')
     const [registerSuccess, setRegisterSuccess] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 
-    const handleRegister = e => {
+    const navigate = useNavigate()
+
+    const handleRegister = async (e) => {
         e.preventDefault()
         const form = new FormData(e.currentTarget)
         const name = form.get('name')
@@ -36,21 +38,28 @@ const Register = () => {
             return
         }
 
-        //create user
-        createUser(email, password)
-        .then(result=>{
+        try {
+            // Create user and update profile
+            const result = await createUser(email, password);
             const user = result.user;
-            console.log(result.user)
-            setRegisterSuccess(toast.success('User created successfully'))
-            return updateProfile(user, {
+            console.log(user);
+            await updateProfile(user, {
                 displayName: name,
                 photoURL: photo
             });
-        })
-        .catch(error=>{
-            console.error(error)
-            setRegisterError(toast.error)
-        })
+            
+            setUser({
+                ...user,
+                displayName: name,
+                photoURL: photo
+            });
+            
+            setRegisterSuccess(toast.success('User created successfully'));
+            navigate('/')
+        } catch (error) {
+            console.error(error);
+            setRegisterError(toast.error('Error creating user'));
+        }
     }
 
     return (

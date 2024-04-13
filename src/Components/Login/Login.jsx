@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsTwitterX } from "react-icons/bs";
 import { Helmet } from "react-helmet";
@@ -14,6 +14,8 @@ const Login = () => {
     const [loginSuccess, setLoginSuccess] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 
+    const navigate = useNavigate()
+
     const handleLogin = e => {
         e.preventDefault()
         const form = new FormData(e.currentTarget)
@@ -23,6 +25,7 @@ const Login = () => {
         .then(result=>{
             console.log(result.user)
             setLoginSuccess(toast.success('Login successful'))
+            navigate('/')
         })
         .catch(error=>{
             console.error(error)

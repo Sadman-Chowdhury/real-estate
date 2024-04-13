@@ -12,11 +12,14 @@ import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
 import AuthProvider from './providers/AuthProvider';
 import LandDetails from './Components/LandDetails/LandDetails';
+import PrivateRoute from './Components/routes/PrivateRoute';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:"/",
@@ -25,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/landDetails/:id',
-        element: <LandDetails></LandDetails>,
+        element: <PrivateRoute><LandDetails></LandDetails></PrivateRoute>,
         loader:()=>fetch('/lands.json')
       },
       {

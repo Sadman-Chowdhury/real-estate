@@ -51,7 +51,7 @@ const Home = () => {
                 </div>
             <div className="swiper-button-next"></div>
             </div>
-                    <h2 className='text-4xl font-bold text-green-600 text-center mt-12'>Recent estates</h2>
+                    <h2 className='text-4xl font-bold text-green-600 text-center mt-14 mb-10'>Recent estates</h2>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
                     {
                         lands.map(land=><Land key={land.id} land={land}></Land>)
