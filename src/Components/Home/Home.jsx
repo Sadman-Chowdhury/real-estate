@@ -39,7 +39,7 @@ const Home = () => {
             <div className="swiper-button-prev text-green-600"></div>
             <div className="swiper-wrapper">
                     {lands.map((land) => (
-                        <div key={land.id} className="swiper-slide bg-gray-300 p-10 space-y-5">
+                        <div key={land.id} className="swiper-slide p-10 space-y-5">
                             <div>
                                 <img className='w-3/4 h-[300px] md:h-[400px] lg:h-[500px] rounded-xl shadow-xl mx-auto rounded-b-none' src={land.image} alt={land.estate_title} />
                             </div>
@@ -51,7 +51,7 @@ const Home = () => {
                 </div>
             <div className="swiper-button-next"></div>
             </div>
-                    <h2 className='text-4xl font-bold text-green-600 text-center mt-14 mb-10'>Recent estates</h2>
+                    <h2 className='text-4xl font-bold text-green-600 text-center mt-14 mb-10'>Available Estates</h2>
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
                     {
                         lands.map(land=><Land key={land.id} land={land}></Land>)
