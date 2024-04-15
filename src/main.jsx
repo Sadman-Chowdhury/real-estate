@@ -16,6 +16,7 @@ import PrivateRoute from './Components/routes/PrivateRoute';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import UserProfile from './Components/UserProfile/UserProfile';
 import UpdateProfile from './Components/UpdateProfile/UpdateProfile';
+import Reviews from './Components/Reviews/Reviews';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
       {
         path:"/updateProfile",
         element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
+      },
+      {
+        path: "/reviews",
+        element:<PrivateRoute><Reviews></Reviews></PrivateRoute>,
+        loader:()=>fetch('/review.json')
       }
     ]
   },

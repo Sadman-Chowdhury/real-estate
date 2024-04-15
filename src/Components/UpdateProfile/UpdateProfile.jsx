@@ -32,7 +32,7 @@ const UpdateProfile = () => {
             </Helmet>
             <ToastContainer></ToastContainer>
             <h2 className="text-4xl text-green-700 font-bold underline text-center">Update Profile</h2>
-            <form onSubmit={handleUpdateProfile} className="card-body p-20 shadow-2xl rounded-2xl mt-5 w-3/5 mx-auto">
+            <form onSubmit={handleUpdateProfile} className="card-body p-20 shadow-2xl rounded-2xl mt-5 w-4/5 lg:w-3/5 mx-auto">
                 <div className="form-control">
                     <label className="text-xl font-bold">Name:</label>
                     <input className="input input-bordered bg-gray-100" type="text" value={name} onChange={(e) => setName(e.target.value)} /> <br />

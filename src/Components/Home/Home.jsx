@@ -31,7 +31,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="mt-[100px] lg:mt-5">
+        <div className="mt-[150px] lg:mt-5">
             <Helmet>
                 <title>Home | Dream Land</title>
             </Helmet>

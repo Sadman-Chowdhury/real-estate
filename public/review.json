@@ -1,0 +1,45 @@
+[
+    {
+      "estate_title": "Vast Vineyard Estate",
+      "userName": "Sophia Martinez",
+      "userReview": "A beautiful vineyard with excellent wine! The estate offers stunning views and a peaceful atmosphere.",
+      "rating": 4.9,
+      "img": "https://i.ibb.co/VQxzfFb/vines-in-a-vineyard-in-alentejo-region-portugal-at-sunset-picture-id1044275790.jpg"
+    },
+    {
+      "estate_title": "Rustic Ranch Retreat",
+      "userName": "Liam Johnson",
+      "userReview": "The ranch was a perfect getaway! The surrounding landscapes were breathtaking, and the accommodations were cozy.",
+      "rating": 4.7,
+      "img": "https://i.ibb.co/zFnNskb/c141eb8f-d7d8-4ad3-97c1-3a4c5177dc3c-jpeg.webp"
+    },
+    {
+      "estate_title": "Serene Forest Sanctuary",
+      "userName": "Emma Thompson",
+      "userReview": "An enchanting forest retreat! The cabin was charming, and the trails were perfect for exploring nature.",
+      "rating": 4.8,
+      "img": "https://i.ibb.co/d4L0vX9/natadera-temple-serene-forest-oasis.jpg"
+    },
+    {
+      "estate_title": "Expansive Plantation Estate",
+      "userName": "Noah Williams",
+      "userReview": "A grand plantation with a rich history! The manor house was elegant, and the gardens were beautifully maintained.",
+      "rating": 4.6,
+      "img": "https://i.ibb.co/FxcdQLf/plantation-estates-debary-fl.jpg"
+    },
+    {
+      "estate_title": "Picturesque Farmhouse",
+      "userName": "Olivia Garcia",
+      "userReview": "The farmhouse was delightful! We enjoyed the peaceful surroundings and fresh produce from the farm.",
+      "rating": 4.5,
+      "img": "https://i.ibb.co/Yd29BdR/100779518.jpg"
+    },
+    {
+      "estate_title": "Tranquil Agricultural Land",
+      "userName": "William Rodriguez",
+      "userReview": "A vast expanse of agricultural land! Perfect for those seeking a quiet retreat in nature.",
+      "rating": 4.8,
+      "img": "https://i.ibb.co/h9CPJgZ/35453633881-014e77ccd5-b.jpg"
+    }
+  ]
+  
