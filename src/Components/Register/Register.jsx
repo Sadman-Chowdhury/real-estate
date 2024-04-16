@@ -55,7 +55,9 @@ const Register = () => {
             });
             
             setRegisterSuccess(toast.success('User created successfully'));
-            navigate('/')
+            setTimeout(() => {
+                navigate('/');
+            }, 1500);
         } catch (error) {
             console.error(error);
             setRegisterError(toast.error('Error creating user'));

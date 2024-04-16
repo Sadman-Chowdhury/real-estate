@@ -1,28 +1,30 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
-import { updateProfile } from "firebase/auth";
+import {  useContext, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from "react-helmet";
+import { getAuth, updateProfile } from "firebase/auth";
+import { AuthContext } from "../../providers/AuthProvider";
+
 
 const UpdateProfile = () => {
-    const {user, setUser} = useContext(AuthContext);
-    const [name, setName] = useState(user.displayName);
-    const [photoURL, setPhotoURL] = useState(user.photoURL);
-
-    const handleUpdateProfile = async(e)=>{
+    const auth = getAuth();
+    const {setUser} = useContext(AuthContext);
+    const [name, setName] = useState(auth.currentUser.displayName);
+    const [photoURL, setPhotoURL] = useState(auth.currentUser.photoURL);
+    console.log("user before",auth.currentUser)
+    
+    const handleUpdateProfile = e =>{
         e.preventDefault();
-
-        try {
-            await updateProfile(user, { displayName: name, photoURL });
-            setUser({ ...user, displayName: name, photoURL });
-            // setUpdateSuccess(toast.success('User profile updated successfully'));
-            toast.success('User profile updated successfully')
-        } catch(error){
-            console.error(error);
-            // setUpdateError(toast.error('Update was unsuccessful'));
-            toast.error('Update was unsuccessful')
-        }
+        
+        updateProfile(auth.currentUser, { displayName: name, photoURL })
+        .then(() => {
+            setUser({ ...auth.currentUser, displayName: name, photoURL });
+            toast.success('User profile updated successfully');
+        })
+        .catch((error) => {
+            console.error("profile update",error);
+            toast.error('Update was unsuccessful');
+        });
     };
 
     return (
@@ -43,14 +45,13 @@ const UpdateProfile = () => {
                 </div>
                 <div className="form-control">
                     <label className="text-xl font-bold">Email:</label>
-                    <input className="input input-bordered bg-gray-100" type="text" value={user.email} /> <br />
+                    <input className="input input-bordered bg-gray-100" type="text" value={auth.currentUser.email} /> <br />
                 </div>
                 <button className="btn border-green-300 bg-white text-green-600">Update</button>
             </form>
-            {/* {updateSuccess && <p>{updateSuccess}</p>}
-            {updateError && <p>{updateError}</p>} */}
         </div>
     );
 };
 
 export default UpdateProfile;
+
